@@ -81,7 +81,7 @@ function x(a) {
 g.right = function(a) {
   return new p(this.x + (void 0 === a ? 1 : a), this.y);
 };
-var y = ["+", "\u2012", "\u2013", "-", "|"], z = [">", "<", "^", "v"], ga = y.concat(z), B = "ontouchstart" in window || "onmsgesturechange" in window, C = new p(-1, 0), D = new p(1, 0), E = new p(0, -1), G = new p(0, 1), ha = [C, D, E, G];
+var y = ["+", "\u2012", "\u2013", "-", "|"], z = [">", "<", "^", "v"], ga = y.concat(z), A = "ontouchstart" in window || "onmsgesturechange" in window, C = new p(-1, 0), D = new p(1, 0), E = new p(0, -1), G = new p(0, 1), ha = [C, D, E, G];
 function H(a, b) {
   this.a = Math.min(a.x, b.x);
   this.b = Math.min(a.y, b.y);
@@ -128,6 +128,7 @@ function ma(a, b) {
 N.style.visibility = "hidden";
 N.style.whiteSpace = "nowrap";
 N.style.fontSize = "12px";
+N.style.fontFamily = "SimSun";
 document.body.appendChild(N);
 function na(a) {
   if (null === a) {
@@ -281,7 +282,7 @@ function U(a) {
   for (var f = "", e = b.y;e <= c.y;e++) {
     for (var k = "", d = b.x;d <= c.x;d++) {
       var l = pa(a, new p(d, e)), k = k + (null == l || "\u2009" == l ? " " : l);
-      10 < na(l) && d++;
+      10 <= na(l) && d++;
     }
     f += k.replace(/\s+$/, "") + "\n";
   }
@@ -302,8 +303,8 @@ function sa(a, b, c) {
 }
 ;function V(a, b, c, d, e) {
   e = void 0 === e ? "+" : e;
-  var f = new H(b, c), k = f.a, l = f.b, A = f.c, f = f.f, F = d ? c.x : b.x;
-  for (d = d ? b.y : c.y;k++ < A;) {
+  var f = new H(b, c), k = f.a, l = f.b, B = f.c, f = f.f, F = d ? c.x : b.x;
+  for (d = d ? b.y : c.y;k++ < B;) {
     var q = new p(k, d), M = T(a, new p(k, d));
     " " == e && 2 == M.c + M.b || oa(a, q, e);
   }
@@ -365,7 +366,7 @@ g.j = function() {
 function ua(a, b) {
   this.a = a;
   this.value = b;
-  B && ($("#freeform-tool-input").val(""), $("#freeform-tool-input").hide(0, function() {
+  A && ($("#freeform-tool-input").val(""), $("#freeform-tool-input").hide(0, function() {
     $("#freeform-tool-input").show(0, function() {
       $("#freeform-tool-input").focus();
     });
@@ -385,7 +386,7 @@ g.o = function() {
   return "crosshair";
 };
 g.j = function(a) {
-  B && (this.value = $("#freeform-tool-input").val().substr(0, 1), $("#freeform-tool-input").blur(), $("#freeform-tool-input").hide(0));
+  A && (this.value = $("#freeform-tool-input").val().substr(0, 1), $("#freeform-tool-input").blur(), $("#freeform-tool-input").hide(0));
   1 == a.length && (this.value = a);
 };
 function va(a, b) {
@@ -517,7 +518,7 @@ function Ba(a) {
 g = Ba.prototype;
 g.start = function(a) {
   var b;
-  if (B) {
+  if (A) {
     if (J(R(this.a, a))) {
       b = a;
     } else {
@@ -540,12 +541,12 @@ g.start = function(a) {
     d = n(ha);
     for (c = d.next();!c.done;c = d.next()) {
       for (c = c.value, e = Ca(this, this.b, c), e = n(e), f = e.next();!f.done;f = e.next()) {
-        var f = f.value, k = 0 != c.x, l = -1 != z.indexOf(I(R(this.a, a))), A = -1 != z.indexOf(I(R(this.a, f)));
+        var f = f.value, k = 0 != c.x, l = -1 != z.indexOf(I(R(this.a, a))), B = -1 != z.indexOf(I(R(this.a, f)));
         if (1 == L(T(this.a, f))) {
-          b.push({position:f, s:k, v:l, u:A});
+          b.push({position:f, s:k, v:l, u:B});
         } else {
           for (var F = n(ha), q = F.next();!q.done;q = F.next()) {
-            q = q.value, 0 != c.add(q).length() && 2 != c.add(q).length() && (q = Ca(this, f, q), q.length && (q = q[0], b.push({position:q, s:k, v:l, w:A, u:-1 != z.indexOf(I(R(this.a, q)))})));
+            q = q.value, 0 != c.add(q).length() && 2 != c.add(q).length() && (q = Ca(this, f, q), q.length && (q = q[0], b.push({position:q, s:k, v:l, w:B, u:-1 != z.indexOf(I(R(this.a, q)))})));
           }
         }
       }
@@ -628,8 +629,8 @@ function Fa(a) {
       if (J(l) || null != l.a && " " != I(l)) {
         a.context.fillStyle = null != l.a ? "#DEF" : "#F5F5F5", b.fillRect(9 * f - a.a.x, 17 * (k - 1) - a.a.y, 9, 17);
       }
-      var A = pa(a.g, new p(f, k));
-      null == A || J(l) && !e || (a.context.fillStyle = "#000000", b.fillText(A, 9 * f - a.a.x, 17 * k - a.a.y - 3));
+      var B = pa(a.g, new p(f, k));
+      null == B || J(l) && !e || (a.context.fillStyle = "#000000", b.fillText(B, 9 * f - a.a.x, 17 * k - a.a.y - 3));
     }
   }
   if (a.h) {

@@ -4,3 +4,4 @@ closure-library/*
 *~
 _site/*
 .DS_Store
+*.7z

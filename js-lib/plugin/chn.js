@@ -3,6 +3,7 @@ const vspan = document.createElement('span');
 vspan.style.visibility = 'hidden';
 vspan.style.whiteSpace = 'nowrap';
 vspan.style.fontSize = '12px';
+vspan.style.fontFamily = 'SimSun';
 document.body.appendChild(vspan);
 
 // Fix character display incompleteness and width

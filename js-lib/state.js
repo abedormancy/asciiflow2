@@ -306,7 +306,7 @@ export default class State {
       for (var i = start.x; i <= end.x; i++) {
         var val = this.getDrawValue(new Vector(i, j));
         line += (val == null || val == c.ERASE_CHAR) ? ' ' : val;
-        chn(val) > 10 && i++;
+        chn(val) >= 10 && i++;
       }
       // Trim end whitespace.
       output += line.replace(/\s+$/, '') + '\n';
