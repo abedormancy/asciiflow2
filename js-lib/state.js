@@ -2,6 +2,8 @@ import Vector from './vector';
 import { Cell, MappedValue, MappedCell, CellContext, Box } from './common';
 import * as c from './constants';
 
+import chn from './plugin/chn'
+
 /**
  * Holds the entire state of the diagram as a 2D array of cells
  * and provides methods to modify the current state.
@@ -304,6 +306,7 @@ export default class State {
       for (var i = start.x; i <= end.x; i++) {
         var val = this.getDrawValue(new Vector(i, j));
         line += (val == null || val == c.ERASE_CHAR) ? ' ' : val;
+        chn(val) > 10 && i++;
       }
       // Trim end whitespace.
       output += line.replace(/\s+$/, '') + '\n';

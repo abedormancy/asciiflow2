@@ -2,6 +2,7 @@ import { SPECIAL_VALUE } from '../constants';
 import { Box } from '../common';
 import State from '../state';
 import Vector from '../vector';
+import chn from '../plugin/chn'
 
 /**
  * Draws a line on the diagram state.
@@ -62,6 +63,6 @@ export function drawText(state, position, text) {
       continue;
     }
     state.drawValue(position.add(new Vector(x, y)), char);
-    x++;
+    chn(char) < 10 ? x++ : (x += 2);
   }
 }
